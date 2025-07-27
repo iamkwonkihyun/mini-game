@@ -1,30 +1,41 @@
 import random
 
-RPS = {
-        1: "rock",
-        2: "paper",
-        3: "scissors"
-    }
+RANDOM_RPS = {
+    1: "rock",
+    2: "paper",
+    3: "scissors"
+}
 
-exit_code = 1
+KOR_RPS = {
+    "바위": "rock",
+    "보": "paper",
+    "가위": "scissors"
+}
 
-while exit_code:
+while True:
     user_input = input("user: ").strip().lower()
     
-    if user_input not in ["rock", "paper", "scissors", "exit", "e"]:
-        print("plz 올바른 input")
+    if user_input in ["exit", "e"]:
+        break
+    
+    if user_input not in ["rock", "paper", "scissors", "exit", "e", "가위", "바위", "보"]:
+        print("올바른 input plz")
+        continue
     
     random_int = int(random.randint(1, 3))
     
-    if user_input in ["exit", "e"]:
-        exit_code = 0
+    random_rps = RANDOM_RPS[random_int]
     
-    random_rps = RPS[random_int]
+    if user_input in ["가위", "바위", "보"]:
+        user_rps = KOR_RPS[user_input]
+    else:
+        user_rps = user_input
     
-    if user_input == random_rps:
+    if user_rps == random_rps:
         print("draw")
+        continue
     
-    match user_input, random_rps:
+    match user_rps, random_rps:
         case "rock", "paper":
             print("you lose")
         case "rock", "scissors":
