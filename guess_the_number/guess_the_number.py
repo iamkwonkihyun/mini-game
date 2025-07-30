@@ -17,7 +17,7 @@ choice_mode = int(input("""
 choice mode
 1. super easy
 2. easy
-3. midium
+3. medium
 4. hard
 5. EXTREME
 6. !!k1HyUn!!
