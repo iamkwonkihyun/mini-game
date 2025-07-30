@@ -27,8 +27,9 @@ winning_lines = [
 
 board = [[" " for _ in range(3)] for _ in range(3)]
 round_cnt = 0
+exit_code = 0
 
-while True:
+while not exit_code:
     clear_console()
     
     show_board()
@@ -65,12 +66,12 @@ while True:
             # 라운드 값 증가
             round_cnt += 1
     
-    for idx, line in enumerate(winning_lines, 1):
+    for line in winning_lines:
         a, b, c = line
         if board[a[0]][a[1]] == board[b[0]][b[1]] == board[c[0]][c[1]] != " ":
             clear_console()
             show_board()
             winner = "user1" if board[a[0]][a[1]] == "O" else "user2"
-            print(f"\n{idx} {winner} win")
-            time.sleep(10)
-            break
+            print(f"\n{winner} win")
+            time.sleep(3)
+            exit_code = 1
