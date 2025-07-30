@@ -22,9 +22,9 @@ while True:
         print("올바른 input plz")
         continue
     
-    random_int = int(random.randint(1, 3))
+    random_num = int(random.randint(1, 3))
     
-    random_rps = RANDOM_RPS[random_int]
+    random_rps = RANDOM_RPS[random_num]
     
     if user_input in ["가위", "바위", "보"]:
         user_rps = KOR_RPS[user_input]
