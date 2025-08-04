@@ -1,4 +1,13 @@
+# 모드        ||  자릿수  || 기타
+# super easy ==  1      == 힌트 0번, up&down X
+# easy       ==  5      == 힌트 3번, updown O
+# midium     ==  10     == 힌트 1번, updown O
+# hard       ==  20     == 힌트 0번, updown O
+# extreme    ==  100    == 힌트 0번, updown 20
+# kihyun     ==  1000   == 힌트 0번, updown X
+
 import random
+from utils.utils import get_user_input
 
 is_right = False
 try_cnt = 0
@@ -13,7 +22,7 @@ MODES = {
     6: {"digits": 1000, "hint": 0, "updown": False, "limit": 0}
 }
 
-choice_mode = int(input("""
+choice_mode = get_user_input("""
 choice mode
 1. super easy
 2. easy
@@ -21,15 +30,7 @@ choice mode
 4. hard
 5. EXTREME
 6. !!k1HyUn!!
-=> """))
-
-# 모드        ||  자릿수  || 기타
-# super easy ==  1      == 힌트 0번, up&down X
-# easy       ==  5      == 힌트 3번, updown O
-# midium     ==  10     == 힌트 1번, updown O
-# hard       ==  20     == 힌트 0번, updown O
-# extreme    ==  100    == 힌트 0번, updown 20
-# kihyun     ==  1000   == 힌트 0번, updown X
+=> """, int)
 
 def print_result(try_cnt, hint_cnt):
     if try_cnt == 1:
